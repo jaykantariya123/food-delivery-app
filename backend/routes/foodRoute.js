@@ -5,9 +5,11 @@ import multer from "multer";
 const foodRouter=express.Router();
 
 //Image  Storage Engine
+const uploadDir = "/tmp/uploads";
+
 
 const storage=multer.diskStorage({
-    destination:"uploads",
+    destination:uploadDir,
     filename:(req,file,cb)=>{
         return cb(null,`${Date.now()}${file.originalname}`)
     }
