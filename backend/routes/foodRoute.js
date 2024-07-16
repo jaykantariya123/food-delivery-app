@@ -1,11 +1,14 @@
 import express from "express";
 import { addFood, listFood, removeFood } from "../controllers/foodController.js";
 import multer from "multer";
+import path from "path";
 
 const foodRouter=express.Router();
 
 //Image  Storage Engine
-const uploadDir = "/tmp/uploads";
+// const uploadDir = "/tmp/uploads";
+
+const uploadDir = path.resolve("uploads");
 
 
 const storage=multer.diskStorage({
