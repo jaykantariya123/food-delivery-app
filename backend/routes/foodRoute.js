@@ -6,10 +6,7 @@ import path from "path";
 const foodRouter=express.Router();
 
 //Image  Storage Engine
-// const uploadDir = "/tmp/uploads";
-
-const uploadDir = path.resolve("uploads");
-
+const uploadDir = "/tmp/uploads";
 
 const storage=multer.diskStorage({
     destination:uploadDir,
