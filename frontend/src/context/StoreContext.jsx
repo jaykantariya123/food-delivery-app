@@ -7,6 +7,7 @@ const StoreContextProvider = (props) => {
   const [food_list, setFoodList] = useState([]);
   const [cartItems, setCartItems] = useState({});
   const url = "https://food-delivery-app-backend-ecru.vercel.app";
+  const imageurl = "https://jaykantariya.s3.eu-north-1.amazonaws.com/";
   const [token, setToken] = useState("");
 
   const addToCart = async (itemId) => {
@@ -84,6 +85,7 @@ const StoreContextProvider = (props) => {
     url,
     token,
     setToken,
+    imageurl
   };
 
   return (

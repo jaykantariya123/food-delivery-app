@@ -1,10 +1,11 @@
 import foodModel from "../models/foodModel.js";
 import fs from "fs";
-import path from "path";
+import { s3 } from "../routes/foodRoute.js";
+import { DeleteObjectCommand } from "@aws-sdk/client-s3";
 
 // add food Item
 const addFood = async (req, res) => {
-  let image_filename = `${req.file.filename}`;
+  let image_filename = `${req.file.key}`;
 
   const food = new foodModel({
     name: req.body.name,
@@ -38,8 +39,11 @@ const listFood = async (req, res) => {
 const removeFood = async (req, res) => {
   try {
     const food = await foodModel.findById(req.body.id);
-    
-    fs.unlink(`tmp/uploads/${food.image}`, () => {});
+
+    // fs.unlink(`tmp/uploads/${food.image}`, () => {});
+    const params = { Bucket: process.env.S3_BUCKET, Key: food.image };
+    const command = new DeleteObjectCommand(params);
+    await s3.send(command);
 
     await foodModel.findByIdAndDelete(req.body.id);
     res.json({ success: true, message: "Food Removed" });
