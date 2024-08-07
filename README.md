@@ -130,3 +130,9 @@ To get the project up and running locally, follow these steps:
 ## 📜 License
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/jaykantariya123/food-delivery-app/blob/main/LICENSE) file for details.
+
+
+
+https://github.com/user-attachments/assets/eb851dd8-9c01-4489-97d9-704f4e802876
+
+
